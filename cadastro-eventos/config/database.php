@@ -2,8 +2,8 @@
 class Database {
     private $host = "localhost";
     private $db_name = "crud_trabalho";
-    private $username = "root"; // Altere se o seu usuário for diferente
-    private $password = "";     // Altere se o seu banco tiver senha
+    private $username = "root";
+    private $password = "";
     public $conn;
 
     public function getConnection() {
