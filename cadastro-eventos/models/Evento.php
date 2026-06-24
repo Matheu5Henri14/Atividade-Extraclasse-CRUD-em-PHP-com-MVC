@@ -13,7 +13,6 @@ class Evento {
         $this->conn = $db;
     }
 
-    // CREATE
     public function cadastrar() {
         $query = "INSERT INTO " . $this->table_name . " (nome, data_evento, local, preco_ingresso) VALUES (:nome, :data_evento, :local, :preco_ingresso)";
         $stmt = $this->conn->prepare($query);
@@ -26,7 +25,6 @@ class Evento {
         return $stmt->execute();
     }
 
-    // READ (Listar todos)
     public function listar() {
         $query = "SELECT * FROM " . $this->table_name . " ORDER BY data_evento ASC";
         $stmt = $this->conn->prepare($query);
@@ -34,7 +32,6 @@ class Evento {
         return $stmt;
     }
 
-    // READ (Buscar um único evento por ID)
     public function buscarPorId($id) {
         $query = "SELECT * FROM " . $this->table_name . " WHERE id = :id LIMIT 0,1";
         $stmt = $this->conn->prepare($query);
@@ -53,7 +50,6 @@ class Evento {
         return false;
     }
 
-    // UPDATE
     public function editar() {
         $query = "UPDATE " . $this->table_name . " SET nome = :nome, data_evento = :data_evento, local = :local, preco_ingresso = :preco_ingresso WHERE id = :id";
         $stmt = $this->conn->prepare($query);
@@ -67,7 +63,6 @@ class Evento {
         return $stmt->execute();
     }
 
-    // DELETE
     public function excluir($id) {
         $query = "DELETE FROM " . $this->table_name . " WHERE id = :id";
         $stmt = $this->conn->prepare($query);
