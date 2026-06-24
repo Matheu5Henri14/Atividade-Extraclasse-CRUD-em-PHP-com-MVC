@@ -3,7 +3,6 @@ require_once "controllers/EventoController.php";
 
 $controller = new EventoController();
 
-// Captura a ação da URL, se não houver, a padrão é 'listar'
 $acao = isset($_GET['acao']) ? $_GET['acao'] : 'listar';
 $id = isset($_GET['id']) ? $_GET['id'] : null;
 
